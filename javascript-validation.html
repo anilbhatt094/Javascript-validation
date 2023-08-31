@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <title>JavaScript String</title>
+    <head>
+     
+    </head>
+    <body>
+        <form name = "myform"  method="get" onsubmit="return validateForm()" >
+    
+            <input type = "text" placeholder="Name" name="fullname" style="display: block; margin-bottom: 10px; height: 40px; width: 200px;">
+            <input type = "text" placeholder="Enter your telephone number" name="telephonenumber" style="display: block;margin-bottom: 10px;height: 40px; width: 200px;">
+            <input type="text" placeholder="Enter your Email Id" name="emailid" style="display: block;margin-bottom: 10px;height: 40px; width: 200px;"">
+            <input type = "password" placeholder="Enter your password" name="password" style="display: block;margin-bottom: 10px;height: 40px; width: 200px;">
+            <input type = "password" placeholder="Enter your Confirm password" name="confirmpassword" style="display: block;margin-bottom: 10px;height: 40px; width: 200px;">
+             <input type = "submit" value="Submit" style="display: block;height: 40px; width: 200px;">
+        
+    
+        </form>
+
+        <script>
+            function validateForm(){
+              
+            var fullname = document.myform.fullname.value; 
+            var emailid = document.myform.emailid.value;
+            var atposition = emailid.indexOf('@');
+            var dotpositino = emailid.indexOf('.');
+            var telephone = document.myform.telephonenumber.value;
+            var password = document.myform.password.value;
+            var confirmpassword = document.myform.confirmpassword.value; 
+            if( fullname == null || fullname == ""){
+                alert( "enter your Name");
+                return false;
+              
+            }else if(isNaN(telephone)){
+                alert("Valid Phone Number Enter");
+                return false;
+            }else if(telephone.length < 10){
+                alert("Please enter phone number minimum 10 digit");
+                return false;
+            }else if(telephone = null || telephone == ""){
+                alert ("Please enter your phone number");
+                return false;
+               
+            }else if(emailid == null || emailid == ""){
+                alert("Enter your Email ID");
+                return false;
+            }else if(atposition<1 || dotpositino < atposition+2 || dotpositino+2 >= emailid.length){
+                alert("Email is not valid");
+                return false;
+            }else if (password.length < 6){
+                alert("passowrd minimul 6 character");
+                return false;
+            }else if(confirmpassword==null || confirmpassword == ""){
+                alert("Enter your confirm password")
+                return false;
+            }else if(password == confirmpassword){
+                alert("Thanks for Submit");
+                return true;
+            }else{
+                alert("Password does not match");
+                return false;
+            }
+        }
+        </script>
+      
+    </body>
+</html>
